@@ -231,6 +231,9 @@ export class HeaderComponent implements OnInit {
         this.childrenMenu[0]["display"] = true;
       }
       if (val instanceof RoutesRecognized) {
+        console.log(this.route.url);
+        var parntURL = val.url.split("/");
+        console.log(parntURL[1]);
         var strIdurl = val.state.root.firstChild.routeConfig.path;
         var strIdArr = strIdurl.split("/");
         var strId = val.state.root.firstChild.params;
@@ -244,6 +247,9 @@ export class HeaderComponent implements OnInit {
             } else {
               child.parent = "individual-investor";
             }
+          }
+          if (parntURL[1] == "article") {
+            child.parent = "individual-investor";
           }
         });
 

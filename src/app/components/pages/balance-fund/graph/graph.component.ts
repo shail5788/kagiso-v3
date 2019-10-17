@@ -96,7 +96,7 @@ export class GraphComponent implements OnInit, OnDestroy, OnChanges {
     return {
       type: "serial",
       theme: "light",
-        color:"gray",
+      color: "gray",
       marginTop: 25,
       marginRight: 25,
       dataProvider: dataProvider,
@@ -104,76 +104,70 @@ export class GraphComponent implements OnInit, OnDestroy, OnChanges {
         {
           id: "v1",
           position: "left",
-          axisThickness:1,
-            axisColor:"grey",
-            axisAlpha:1,
-            gridAlpha:2,
-            gridColor:"white",
-            gridThickness:1,
+          axisThickness: 1,
+          axisColor: "grey",
+          axisAlpha: 1,
+          gridAlpha: 2,
+          gridColor: "white",
+          gridThickness: 1
         }
       ],
 
       graphs: [
         {
-            
           id: "g1",
-            balloonColor:"gray",
+          balloonColor: "gray",
           balloonText:
             "<div style='font-size:14px; background-color:#fff;text-align:left'><span style='color:rgb(182,12,47); '>FUND RETURN [[value]]</span></div>",
-            borderThickness:0,
-           borderAlpha:0.1,
-            lineColor: "rgb(182,12,47)",
+          borderThickness: 0,
+          borderAlpha: 0.1,
+          lineColor: "rgb(182,12,47)",
           lineThickness: 1,
           useLineColorForBulletBorder: false,
           valueField: "value",
-           bulletSize:13,
+          bulletSize: 13
         },
         {
           id: "g2",
           bullet: "round",
-            balloonColor:"gray",
+          balloonColor: "gray",
           balloonText:
             "<div style='font-size:14px; background-color:#fff;text-align:left;padding-right:2px'><span style='color:#656565;'>BENCHMARK [[value1]]&nbsp;&nbsp;</span></div>",
           bulletBorderAlpha: 1,
-            bulletBorderThickness:0,
+          bulletBorderThickness: 0,
           bulletColor: "#a11c0d",
           lineColor: "rgb(128,175,169)",
           hideBulletsCount: 50,
           lineThickness: 1,
-          valueField: "value1",  
-        },
-         
+          valueField: "value1"
+        }
       ],
-        balloon:{
-            adjustBorderColor:true,
-            fillAlpha:1,
-            borderAlpha:1,
-            borderThickness:1,
-            showBullet:true,
-            drop:false,
-            fillColor:"white",
-            borderColor:"gray",
-            shadowAlpha:0,
-           fontSize:13,
-           
-        },
+      balloon: {
+        adjustBorderColor: true,
+        fillAlpha: 1,
+        borderAlpha: 1,
+        borderThickness: 1,
+        showBullet: true,
+        drop: false,
+        fillColor: "white",
+        borderColor: "gray",
+        shadowAlpha: 0,
+        fontSize: 13
+      },
 
-     chartCursor: {
-          color:"white",
+      chartCursor: {
+        color: "white",
         cursorAlpha: 1,
-          cursorColor:"rgb(163,11,42)",
-        valueLineAlpha: 2,
-         
-         
-          
+        cursorColor: "rgb(163,11,42)",
+        valueLineAlpha: 2
       },
       categoryField: "month",
       categoryAxis: {
-        gridAlpha:0,
-            axisThickness:1,
-            axisColor:"grey",
-            axisAlpha:1,
-          dashLength:4,
+        gridAlpha: 0,
+        axisThickness: 1,
+        axisColor: "grey",
+        axisAlpha: 1,
+        dashLength: 4,
         parseDates: false,
         categoryFunction: function(category, dataItem, categoryAxis) {
           const m = getMonthNameByNum(dataItem.month.getMonth());
@@ -193,7 +187,7 @@ export class GraphComponent implements OnInit, OnDestroy, OnChanges {
         },
         showFirstLabel: false,
         startOnAxis: false,
-        equalSpacing: true,
+        equalSpacing: true
       },
       /*
 	  categoryAxesSettings: {
@@ -224,7 +218,7 @@ export class GraphComponent implements OnInit, OnDestroy, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges) {
     this.newData = this.makeDataSet();
-    console.log(this.newData);
+    //console.log(this.newData);
     if (this.newData) {
       this.options = this.makeOptions(this.makeDataSet());
 
