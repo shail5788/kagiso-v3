@@ -19,23 +19,28 @@ export class BalanceFundComponent implements OnInit {
   constructor(private wpservice: WPAPIService, private router: Router) {}
 
   ngOnInit() {
-    /*this.wpservice.readCSVDataFromServer().subscribe(data => {
-      console.log("readCSVDataFromServer========", data);
-    });*/
-    this.year='all';
+    console.log(this.getBalancedData.acf.since_inception_csv);
     this.wpservice
-      .getCSVData("assets/images/balance_fund.csv")
+      .readCSVGraphdatafromServer(this.getBalancedData.acf.since_inception_csv)
       .subscribe(data => {
         this.csvData = data;
+        console.log(data);
         this.getGraphData = this.makeDataSets(data);
-        //console.log(this.getGraphData);
       });
+    this.year = "all";
+    // this.wpservice
+    //   .getCSVData("assets/images/balance_fund.csv")
+    //   .subscribe(data => {
+    //     this.csvData = data;
+    //     console.log(data);
+    //     this.getGraphData = this.makeDataSets(data);
+    //   });
     this.currentRoute = this.router.url.slice(1);
     this.selectedRoute = "";
   }
   getConditionalCSV(years = null) {
     if (years != null) {
-      this.year=years;
+      this.year = years;
       //this.createDataConditionalDataset(years);
       this.getGraphData = this.makeDataSets(this.csvData, years);
     }
